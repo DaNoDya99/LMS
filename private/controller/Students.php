@@ -1,11 +1,11 @@
 <?php
 
-//Home controller
+//Student controller
 
 class Students extends Controller
 {
-    function index($id = null)
+    function index()
     {
-        echo "hi from students".$id;
+        echo "hi from students";
     }
 }

@@ -4,8 +4,15 @@
 
 class Controller
 {
-    function __construct()
+    public function view($view,$data = array())
     {
-        
+        extract($data);
+
+        if(file_exists("../private/view/".$view . ".view.php")){
+            require("../private/view/".$view.".view.php");
+        }
+        else{
+            require("../private/view/404.view.php");
+        }
     }
 }
