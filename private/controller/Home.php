@@ -6,6 +6,10 @@ class Home extends Controller
 {
     function index()
     {
-        $this->view('home');
+        $user = $this->load_model('User');
+
+        $data = $user->findAll();
+        // $data = $user->where('firstname','Danodya');
+        $this->view('home',['rows'=>$data]);
     }
 }

@@ -4,7 +4,7 @@
 
 class Controller
 {
-    public function view($view,$data = array())
+    public function view($view, $data = array())
     {
         extract($data);
 
@@ -14,5 +14,15 @@ class Controller
         else{
             require("../private/view/404.view.php");
         }
+    }
+
+    public function load_model($model)
+    {
+        if(file_exists("../private/model/".ucfirst($model).".php"))
+        {
+            require("../private/model/".ucfirst($model).".php");
+            return $model = new $model();
+        }
+        return false;
     }
 }
